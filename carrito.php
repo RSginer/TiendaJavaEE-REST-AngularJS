@@ -22,13 +22,18 @@
                             <img src="<?php echo $producto->img; ?>" alt="" class="circle">
                             <span class="title"><?php echo $producto->titulo; ?></span>
                             <span class="right" style="font-size: 18px;margin-right: 65px;margin-top: 5px;"><?= $producto->precio; ?> €</span>
-                            <a href="servidor/eliminarDelCarrito.php?articulo=<?=$producto->id?>" class="secondary-content"><i class="material-icons">delete</i></a>
+                            <a href="servidor/eliminarDelCarrito.php?articulo=<?= $producto->id ?>" class="secondary-content"><i class="material-icons">delete</i></a>
                         </li>
                     </ul>
                     <?php
                     $total+=$producto->precio;
                 }
                 ?>
+             <div class="row">
+                <a class="waves-effect waves-red btn-flat left" href="servidor/vaciarCarrito.php" type="submit" name="action">Vaciar carrito
+                <i class="material-icons right">undo</i>
+            </a>
+            </div>
             <?php } else { ?>
                 <ul class="collection">
                     <li class="collection-item">
@@ -41,13 +46,13 @@
             </div>
             <div class="row">
                 <?php
-                            if (isset($_SESSION['carrito'])) {
-                               ?> <button class="btn waves-effect waves-light right" type="submit" name="action">Continuar
-                    <i class="material-icons right">send</i>
-                </button>
-                          <?php  }
+                if (isset($_SESSION['carrito'])) {
+                    ?> <a class="btn waves-effect waves-light right" href="tramitarPedido.php" type="submit" name="action">Continuar
+                        <i class="material-icons right">send</i>
+                    </a>
+                <?php }
                 ?>
-                
+
             </div>
         </div>
         <!-- FIN CARRITO -->

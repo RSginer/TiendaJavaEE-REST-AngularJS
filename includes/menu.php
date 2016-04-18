@@ -1,5 +1,6 @@
 <ul id="dropdown1" class="dropdown-content">
     <?php 
+    $url = "http://" . $_SERVER['HTTP_HOST'] . ":" . $_SERVER['SERVER_PORT'] . $_SERVER['REQUEST_URI'];
         if ($_SESSION['userid']==6) {?>
              <li><a href="#">Administrar tienda</a></li>
        <?php }
@@ -9,7 +10,7 @@
     <li class="divider"></li>
     <li><a href="servidor/cerrarSesion.php">Salir</a></li>
 </ul>
-<nav class="blue">
+<nav class="blue hidden-only-s">
     <div class="nav-wrapper container">
         <a href="index.php" class="brand-logo">Tienda FP Skills</a>
         <ul class="right hide-on-med-and-down">
@@ -23,7 +24,7 @@
               echo utf8_encode($objeto->nombre);
               echo '<i class="material-icons right">arrow_drop_down</i></a></li>';
             } else {
-              echo '<li><a href="login.php" class="waves-effect waves-light btn botonmenu">Iniciar sesión</a></li>
+              echo '<li><a href="login.php?url='.urlencode($url).'" class="waves-effect waves-light btn botonmenu">Iniciar sesión</a></li>
               <li><a href="registro.php" class="waves-effect waves-light btn botonmenu">Crear cuenta</a></li>';
             }
             ?>
@@ -47,6 +48,9 @@
                  case 'registro':  echo' <a href="registro.php" class="breadcrumb">Registrarse</a>';
                      break;
                   case 'carrito':  echo' <a href="carrito.php" class="breadcrumb">Carrito de la compra</a>';
+                     break;
+                   case 'tramitarPedido':  echo' <a href="carrito.php" class="breadcrumb">Carrito de la compra</a>';
+                       echo' <a href="tramitarPedido.php" class="breadcrumb">Datos de envio</a>';
                      break;
              }
             ?>

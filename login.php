@@ -7,11 +7,13 @@
 }?>
     </head>
     <body>
-        <?php include('includes/menu.php'); ?>
+        <?php include('includes/menu.php');
+        $url=  urldecode($_GET['url']);
+        ?>
         <!-- FORMULARIO -->
         <br>
         <div class="row container">
-            <form action="servidor/iniciarSesion.php" method="post" class="col s12 m12 formulario" style="">
+            <form action="servidor/iniciarSesion.php?url=<?=  urlencode($url)?>" method="post" class="col s12 m12 formulario" style="">
                 <?php
                 if (isset($_GET['registro'])) {
                     echo'<p style="color:green;">¡Registro completado! Inicia sesión para comenzar a usar tu cuenta</p>'
