@@ -17,11 +17,11 @@
             <?php
             
             if (isset($_SESSION["userid"])) {
-                $usuario = $_SESSION['userid'];
-              echo '  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons left">person_pin</i>';
-              $nombre =  mysql_query("SELECT * FROM usuarios WHERE id='$usuario'");
+                $usuario = $_SESSION['userid'];?>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons left">person_pin</i>
+             <?php $nombre =  mysql_query("SELECT * FROM usuarios WHERE id='$usuario'");
               $objeto = mysql_fetch_object($nombre);
-              echo  $objeto->nombre;
+              echo utf8_encode($objeto->nombre);
               echo '<i class="material-icons right">arrow_drop_down</i></a></li>';
             } else {
               echo '<li><a href="login.php" class="waves-effect waves-light btn botonmenu">Iniciar sesión</a></li>
