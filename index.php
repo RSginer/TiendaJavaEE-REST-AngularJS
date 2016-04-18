@@ -1,10 +1,14 @@
-<?php $pagina = "inicio" ?>
+<?php
+$pagina = "inicio";
+$url = "http://" . $_SERVER['HTTP_HOST'] . ":" . $_SERVER['SERVER_PORT'] . $_SERVER['REQUEST_URI'];
+?>
 <html>
     <head>
-        <?php include('includes/meta.php'); ?>
+<?php include('includes/meta.php'); ?>
     </head>
     <body>
-        <?php include('includes/menu.php'); ?>
+        <?php include('includes/menu.php');
+        ?>
         <!-- IMAGEN PARALLAX -->
         <div id="index-banner" class="parallax-container">
             <div class="section no-pad-bot">
@@ -13,9 +17,7 @@
                     <h1 class="header center teal-text text-darken-4">Bienvenido a mi tienda</h1>
                     <div class="row center">
                         <h5 class="header col s12 light">Esto es una tienda para practicar las FP Skills</h5>
-
                     </div>
-
                     <br>
                 </div>
             </div>
@@ -40,8 +42,8 @@
                                 <blockquote class="teal-text text-lighten-1" style="font-size: 30px;text-align: right;"><?php echo $consulta_resultados->precio ?>€</blockquote>
                             </div>
                             <div class="card-action">
-                                <a href="#">Comprar</a>
-                                <a href="servidor/añadirAlCarrito.php?articulo=<?= $consulta_resultados->id ?>">Añadir al carro</a>      
+                                <a href="servidor/añadirAlCarrito.php?articulo=<?= $consulta_resultados->id; ?>&url=<?= urlencode($url); ?>&comprar=true">Comprar</a>
+                                <a href="servidor/añadirAlCarrito.php?articulo=<?= $consulta_resultados->id; ?>&url=<?= urlencode($url); ?>">Añadir al carro</a>      
                             </div>
                         </div>
                     </div>
@@ -51,7 +53,7 @@
             <!--Import jQuery before materialize.js-->
         </div>
         <!-- FIN PRODUCTOS -->
-        <?php include ('includes/footer.php'); ?>
+<?php include ('includes/footer.php'); ?>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script>
