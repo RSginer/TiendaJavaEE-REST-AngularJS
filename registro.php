@@ -8,24 +8,22 @@
         <!-- FORMULARIO -->
         <br>
         <div class="row container">
-
-            <form class="col s12 formulario" id="f" action="servidor/registrarse.php" method="POST">
+            <form class="col s12 formulario" id="f" onSubmit="return comprobarContraseña()" action="servidor/registrarse.php" method="POST">
                 <h2 class=" header center text-teal text-lighten-1">Formulario de registro</h2>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s6 m6">
                         <input id="nombre" required="required" name="nombre" type="text" class="validate">
                         <label for="nombre" name="nombre">Nombre</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s6 m6">
                         <input id="apellidos" required="required" name="apellidos" type="text" class="validate">
                         <label for="apellidos">Apellidos</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s2">
-                        <label>Pais</label>
+                    <div class="input-field col s6 m2">
                         <select name="pais" id="pais">
-                            <option value="" disabled="disabled" selected="selected"></option>
+                            <option value="" disabled="disabled" selected="selected">Pais</option>
                             <option value="AF">Afganistán</option>
                             <option value="AL">Albania</option>
                             <option value="DE">Alemania</option>
@@ -262,15 +260,15 @@
                             <option value="ZW">Zimbabue</option>
                         </select>
                     </div>
-                    <div class="input-field col s2">
+                    <div class="input-field col s6 m2">
                         <input  id="ciudad" required="required" name="ciudad" type="text" class="validate">
                         <label for="ciudad">Ciudad</label>
                     </div>
-                    <div class="input-field col s2">
+                    <div class="input-field col s6 m2">
                         <input  id="cp" required="required" name="cp" type="text" class="validate">
                         <label for="cp">CP</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s12 m6">
                         <input  id="direccion" required="required" name="direccion" type="text" class="validate">
                         <label for="direccion">Dirección</label>
                     </div>
@@ -310,7 +308,7 @@
                         </button>
                     </div>
                     <div class="input-field col s6 center">
-                        <button class="btn waves-effect waves-light " onclick="comprobarContraseña()">Enviar
+                        <button class="btn waves-effect waves-light " type="submit" name="action">Enviar
                             <i class="material-icons left">send</i>
                         </button>
                     </div>
@@ -332,9 +330,11 @@
                                 alert(pass + " " + pass2);
                                 if (pass === pass2) {
                                     document.getElementById('#f').submit();
+                                    return true;
                                 } else {
                                     document.getElementById('#password').class = "invalid";
                                     document.getElementById('#password2').class = "invalid";
+                                    return false;
 
                                 }
                             }

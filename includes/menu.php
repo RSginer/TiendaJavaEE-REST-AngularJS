@@ -15,7 +15,6 @@
         <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
             <?php
-            
             if (isset($_SESSION["userid"])) {
                 $usuario = $_SESSION['userid'];?>
                 <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons left">person_pin</i>
@@ -28,7 +27,11 @@
               <li><a href="registro.php" class="waves-effect waves-light btn botonmenu">Crear cuenta</a></li>';
             }
             ?>
-            <li><a href="#"><i class="material-icons left">shopping_cart</i><span id="carrito" style="background-color: white; border-radius: 50%; color: rgb(33, 150, 243); padding: 0px 5px;">0</span></a></li>
+                        <li><a href="carrito.php"><i class="material-icons left">shopping_cart</i><span id="carrito" style="background-color: white; border-radius: 50%; color: rgb(33, 150, 243); padding: 0px 5px;"><?php if (isset($_SESSION['carrito'])) {
+               echo count($_SESSION['carrito']);
+            }else{
+                echo 0;
+            } ?></span></a></li>
         </ul>
     </div>
 </nav>
@@ -37,11 +40,15 @@
         <div class="col s12">
             <a href="index.php" class="breadcrumb">Inicio</a>
             <?php
-            if ($pagina == "login") {
-                echo' <a href="login.php" class="breadcrumb">Iniciar sesión</a>';
-            } else if ($pagina == "registro") {
-                echo' <a href="registro.php.php" class="breadcrumb">Registrarse</a>';
-            }
+             switch ($pagina) {
+                 case 'login':
+                         echo' <a href="login.php" class="breadcrumb">Iniciar sesión</a>';
+                     break;
+                 case 'registro':  echo' <a href="registro.php" class="breadcrumb">Registrarse</a>';
+                     break;
+                  case 'carrito':  echo' <a href="carrito.php" class="breadcrumb">Carrito de la compra</a>';
+                     break;
+             }
             ?>
         </div>
     </div>

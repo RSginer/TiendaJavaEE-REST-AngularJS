@@ -41,7 +41,7 @@
                             </div>
                             <div class="card-action">
                                 <a href="#">Comprar</a>
-                                <a href="#">Añadir al carro</a>      
+                                <a href="servidor/añadirAlCarrito.php?articulo=<?= $consulta_resultados->id ?>">Añadir al carro</a>      
                             </div>
                         </div>
                     </div>
