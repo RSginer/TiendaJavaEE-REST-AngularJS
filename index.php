@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head>    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Rubén FP Skills</title>
+    <title>Rubén FP Skills - Index</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <![endif]-->
   </head>
   <body>
-    <? include 'menu.php' ?>
+    <?php include 'menu.php' ?>
   <div class="jumbotron">
       <div class="container">
         <h1>Bienvenido a mi Tienda</h1>
