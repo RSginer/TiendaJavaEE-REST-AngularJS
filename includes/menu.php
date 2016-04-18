@@ -12,7 +12,7 @@
 </ul>
 <nav class="blue hidden-only-s">
     <div class="nav-wrapper container">
-        <a href="index.php" class="brand-logo">Tienda FP Skills</a>
+        <a href="index.php" class="brand-logo"><img height="130px" width="130px"src="img/logo.png"></a>
         <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
             <?php
@@ -36,9 +36,9 @@
         </ul>
     </div>
 </nav>
-<nav class="light-blue">
+<nav  style="padding-left: 200px"class="light-blue">
     <div class="nav-wrapper container">
-        <div class="col s12">
+        <div class="hide-on-med-and-down"class="col s12">
             <a href="index.php" class="breadcrumb">Inicio</a>
             <?php
              switch ($pagina) {
