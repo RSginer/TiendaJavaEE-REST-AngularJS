@@ -363,7 +363,7 @@
                                     <td> <?= $producto->titulo; ?></td>
                                     <td><?= $producto->precio ?> €</td>
                                 </tr>
-                                <?php
+                            <?php
                                 $total+=$producto->precio;
                             }
                             ?>
@@ -378,8 +378,8 @@
                 <?php } ?>
 
                 <br>
-                <button class="btn waves-effect waves-light right" type="submit" onclick="document.getElementById('f').submit()" name="action">Pagar
-                    <i class="material-icons right">payment</i>
+                <button class="btn waves-effect waves-light right" type="submit" onclick="document.getElementById('f').submit()" name="action">Continuar
+                    <i class="material-icons right">send</i>
                 </button>
             </div>
         </div>
