@@ -1,3 +1,4 @@
 # BackendTiendaJavaEE
-Tienda Frontend AngularJS Backend Java EE 
+Tienda Backend Java EE 
+
 repositorio del frontend: https://github.com/RSginer/FrontendTiendaAngularJS
