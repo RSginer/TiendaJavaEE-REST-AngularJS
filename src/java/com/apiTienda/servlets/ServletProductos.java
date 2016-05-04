@@ -47,7 +47,6 @@ public class ServletProductos extends HttpServlet {
      *
      * @param req servlet request
      * @param res servlet response
-     * @throws ServletExceptiet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
