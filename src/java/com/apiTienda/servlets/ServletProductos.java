@@ -45,19 +45,19 @@ public class ServletProductos extends HttpServlet {
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param req servlet request
-     * @param res servlet response
+     * @param request servlet request
+     * @param response servlet response
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Connection con;
         TransformadorJson TJson = new TransformadorJson();
         ArrayList<Producto> listaProductos = new ArrayList<>();
         try {
-            res.setContentType("application/json;charset=UTF-8");
+            response.setContentType("application/json;charset=UTF-8");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendaAngularJS", "root", "root");
             if (con != null) {
 
@@ -105,7 +105,7 @@ public class ServletProductos extends HttpServlet {
                     // fin añadir reviews
                     listaProductos.add(p);
                 }
-                try (PrintWriter out = res.getWriter()) {
+                try (PrintWriter out = response.getWriter()) {
                     out.printf(TJson.toJson(listaProductos.toArray()));
                 }
             } else {
@@ -114,18 +114,7 @@ public class ServletProductos extends HttpServlet {
             System.out.print(ex);
         }
 
-        processRequest(req, res);
-
-//Producto p = new Producto(1,"Zapatillas","Esto son unas zapatillas", "img/imagenProducto.jpg",100,40,80);
-//Usuario u = new Usuario(1,"Rubén","img/user.jpg");
-//Review r1 = new Review(1,1,u.getId(),"este es el comentario",3,u.getImagen());
-//Review r2 = new Review(2,2,u.getId(),"este es el comentario 2",3,u.getImagen());
-//Review r[] = {r1,r2};
-//p.setReviews(r);
-// try (PrintWriter out = res.getWriter()) {
-//                    out.print(this.TJson.toJson(p));
-//                }
-//    }
+        processRequest(request, response);
     }
 
     /**
