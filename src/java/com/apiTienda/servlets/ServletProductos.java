@@ -83,7 +83,6 @@ public class ServletProductos extends HttpServlet {
                     psReviews.setInt(1, Integer.parseInt(resProducto.getString("id"))/* AQUI LA VARIABLE idProducto */);
                     ResultSet resReviews = psReviews.executeQuery();
                     ArrayList<Review> listaReviews = new ArrayList<>();
-                    Review[] rListArray = null;
                     while (resReviews.next()) {
 
                         //añadir usuario a la review
