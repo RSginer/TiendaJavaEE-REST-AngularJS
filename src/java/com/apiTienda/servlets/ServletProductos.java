@@ -97,16 +97,18 @@ public class ServletProductos extends HttpServlet {
                                 Integer.parseInt(resReviews.getString("estrellas")),
                                 resReviews.getDate("fecha")
                         );
+                        // fin añadir usuario
                         listaReviews.add(r);
                     }
                     p.setReviews(listaReviews);
                     // fin añadir reviews
                     listaProductos.add(p);
+
+                    // fin obtener productos
                 }
                 try (PrintWriter out = response.getWriter()) {
                     out.printf(TJson.toJson(listaProductos.toArray()));
                 }
-            } else {
             }
         } catch (SQLException ex) {
             System.out.print(ex);
