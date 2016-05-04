@@ -29,7 +29,7 @@ CREATE TABLE `producto` (
   `imagen` varchar(450) DEFAULT NULL,
   `precio` double DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
-  `precioAntes` double DEFAULT NULL,
+  `precioAntes` double DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -41,7 +41,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'Adidas SuperStar','La línea adidas Originals es una creación reciente del gran fabricante adidas. Lejos quedan ya los primeros días de la marca, cuando Adi Dassler fabricaba a mano sus primeros zapatos, instalado en los 20 m² de la lavandería de su madre. Las deportivas adidas llevan casi un siglo equipando atletas de todas clases con el mejor material posible.','img/zapatillasAdidas.jpg',40,100,89.9);
+INSERT INTO `producto` VALUES (1,'Adidas SuperStar','La línea adidas Originals es una creación reciente del gran fabricante adidas. Lejos quedan ya los primeros días de la marca, cuando Adi Dassler fabricaba a mano sus primeros zapatos, instalado en los 20 m² de la lavandería de su madre. Las deportivas adidas llevan casi un siglo equipando atletas de todas clases con el mejor material posible.','img/zapatillasAdidas.jpg',40,100,89.9),(2,'Nike AirMax','La revolucionaria unidad Air-Sole empezó a formar parte de las zapatillas Nike a finales de los 70. En 1987, la tecnología Nike Air Max 1 debutó con la unidad Air visible en el talón, que proporcionaba más que simplemente la sensación de comodidad de la unidad Air-Sole; de repente, esta comodidad también podía verse.','img/zapatillasNike.jpg',59,0,59),(3,'Reebok','No lo dudes. Si el cuentarrevoluciones llega al máximo, con estas zapatillas podrás hacerle frente sin esfuerzo. La zona del empeine está envuelta en una estructura de DuPont™ Kevlar® para mayor durabilidad','img/zapatillasReebok.jpg',39,10,0);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-04 22:31:49
+-- Dump completed on 2016-05-05  0:21:27
