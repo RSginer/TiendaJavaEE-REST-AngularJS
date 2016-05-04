@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `tiendaAngularJS` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `tiendaAngularJS`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: tiendaAngularJS
@@ -58,13 +60,13 @@ CREATE TABLE `review` (
   `estrellas` int(1) DEFAULT '1',
   `comentario` varchar(700) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fecha` date DEFAULT NULL,
+  `fecha` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_reviews_2_idx` (`idusuario`),
   KEY `fk_reviews_1` (`idproducto`),
   CONSTRAINT `fk_reviews_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_reviews_2` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +75,7 @@ CREATE TABLE `review` (
 
 LOCK TABLES `review` WRITE;
 /*!40000 ALTER TABLE `review` DISABLE KEYS */;
-INSERT INTO `review` VALUES (1,1,5,'El comentario',2,'2016-05-02');
+INSERT INTO `review` VALUES (1,1,5,'El comentario',2,'2016-05-02 00:30:00'),(2,1,4,'Comentario para las nike',3,'2016-05-05 00:48:50');
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,4 +113,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-05  0:33:09
+-- Dump completed on 2016-05-05  1:28:56
