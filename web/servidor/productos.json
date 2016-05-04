@@ -1,0 +1,68 @@
+[{
+    "id":1,
+    "nombre": "Adidas SuperStar",
+    "descripcion": "La línea adidas Originals es una creación reciente del gran fabricante adidas. Lejos quedan ya los primeros días de la marca, cuando Adi Dassler fabricaba a mano sus primeros zapatos, instalado en los 20 m² de la lavandería de su madre. Las deportivas adidas llevan casi un siglo equipando atletas de todas clases con el mejor material posible. ",
+    "imagen": "img/zapatillasAdidas.jpg",
+    "precioAntes":89,
+    "precio": 40,
+    "stock": 100,
+    "reviews": [{
+        "estrellas": 4,
+        "autor": "Rubén",
+        "imagen": "img/user.jpg",
+        "comentario": "Son muy buenas !",
+        "fecha":"02/01/2016 9:45:20"
+    }, {
+        "estrellas": 2,
+        "autor": "Alfonso",
+        "imagen": "img/user.jpg",
+        "comentario": "Nice product!",
+        "fecha":"12/02/2016 22:45:20"
+    }]
+},{
+     "id":2,
+    "nombre": "Nike AirMax",
+  "descripcion": "A medida que el pie golpea el suelo, la amortiguación Nike Air absorbe la fuerza de impacto y protege músculos, articulaciones y tendones. La amortiguación Nike Air vuelve inmediatamente a su forma original para proteger el cuerpo del próximo impacto. Como resultado, el atleta protege su cuerpo de fatiga y estrés.",
+    "imagen": "img/zapatillasNike.jpg",
+    "precio": 49.9,
+    "stock": 0,
+    "reviews": [{
+        "estrellas": 5,
+        "autor": "Pepe",
+        "imagen": "img/user.jpg",
+        "comentario": "Estupendas, me llegaron enseguida y son muy bonitas !",
+        "fecha":"22/03/2015 15:45:20"
+    }, {
+        "estrellas": 5,
+        "autor": "Isabel",
+        "imagen": "img/user.jpg",
+        "comentario": "Son muy malas no las compreis por que a mi me paso que a la semana se me callo la pegatina de adidas",
+        "fecha":"20/11/2015 9:45:20"
+    }, {
+        "estrellas": 5,
+        "autor": "Manolito Perez",
+        "imagen": "img/user.jpg",
+        "comentario": "Esto como se cocina?",
+        "fecha":"21/01/2016 14:02:55"
+    }]
+}, {
+     "id":3,
+    "nombre": "Reebok clasic nylon",
+  "descripcion": "Muévete con estilo. Detalles en ante que le dan un toque elegante. Únicas en confort gracias a la amortiguación de su mediasuela de EVA y la plantilla de espuma acolchada. Suela resistente a la fricción, con una gran tracción y durabilidad para que nada te pare",
+    "imagen": "img/zapatillasReebok.jpg",
+    "precio": 59.9,
+    "stock": 10,
+    "reviews": [{
+        "estrellas": 5,
+        "autor": "Jorge",
+        "imagen": "img/user.jpg",
+        "comentario": "Nice",
+        "fecha":"22/03/2015 15:45:20"
+    }, {
+        "estrellas": 3,
+        "autor": "Manolito Perez",
+        "imagen": "img/user.jpg",
+        "comentario": "Esto como se cocina?",
+        "fecha":"21/01/2016 14:02:55"
+    }]
+}]

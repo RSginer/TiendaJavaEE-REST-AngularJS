@@ -1,0 +1,141 @@
+body {
+    font-size: 14px;
+}
+.inputBuscar {
+    background: transparent;
+    border: none;
+    color: white !important;
+}
+.inputBuscar:active {
+    border-bottom: 1px solid #A8A8A8;
+}
+.inputBuscar:hover {
+    -webkit-box-shadow: inset 0 0 2px #000;
+    -moz-box-shadow: inset 0 0 2px #000;
+    box-shadow: inset 0 0 2px #000;
+    border-bottom: 1px solid white;
+}
+.inputBuscar:focus {
+    border-bottom: 1px solid white;
+    -webkit-box-shadow: inset 0 0 5px #000;
+    -moz-box-shadow: inset 0 0 5px #000;
+    box-shadow: inset 0 0 5px #000;
+}
+.botonBuscar {
+    background: transparent;
+    color: white !important;
+}
+.menu {
+    text-align: center;
+}
+menu {
+    padding: 0px 0px !important;
+    margin-top: 0px !important;
+}
+.menu li > a {
+    color: white !important;
+}
+.oferta {
+    text-align: right;
+    float: left;
+    font-size: 18px;
+    margin-right: 10px;
+    color: blue;
+}
+input.ng-dirty.ng-invalid, input.ng-empty.ng-invalid {
+    border: 1px solid red !important;
+}
+textarea.ng-dirty.ng-invalid, textarea.ng-empty.ng-invalid {
+    border: 1px solid red !important;
+}
+textarea.ng-valid {
+    border: 1.5px solid green !important;
+}
+input.ng-valid {
+    border: 1.5px solid green !important;
+}
+.panel-producto {
+    margin-bottom: 0px;
+}
+.divImagen {
+    text-align: center;
+    border: 2px dashed #DDD;
+    margin-bottom: 10px;
+}
+.cabeceraDeArticulo {
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.autor {
+    text-align: center;
+    margin: 0 auto;
+    color: black;
+}
+.pieDePanel {
+    text-align: left;
+}
+.descProducto {
+    text-align: justify;
+}
+.fechaComentario {
+    font-size: 10px;
+    color: grey;
+}
+.imagenUsuario {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+a:hover {
+    text-decoration: none;
+}
+.nav-tabs.nav > li > a {
+    padding: 5px 10px;
+}
+.stock {
+    font-size: 10px;
+    color: blue;
+    float: right;
+}
+.stock-agotado {
+    font-size: 8px;
+    color: red;
+    float: right;
+}
+a {
+    color: black;
+}
+.precio {
+    font-size: 28px;
+    float: right;
+    vertical-align: middle;
+}
+.comentario {
+    border: 1px solid #EEE;
+    min-height: 100px;
+    padding: 10px;
+    padding-top: 0px;
+    text-align: justify;
+    margin-bottom: 5px;
+}
+.comentarioPreview {
+    margin-left: 0px !important;
+}
+.imagenProducto {
+    width: 60%;
+    height: 60%;
+}
+.estrellas {
+    color: orange;
+}
+.botonComprar {
+    margin-top: 5px;
+}
+.panel-title {
+    font-size: 20px;
+    text-align: center;
+}

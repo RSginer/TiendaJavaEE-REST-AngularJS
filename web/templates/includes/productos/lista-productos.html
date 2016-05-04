@@ -1,0 +1,35 @@
+<div ng-controller="ControladorProductos as tienda">
+    <div ng-repeat="producto in tienda.productos" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="panel panel-default panel-producto">
+            <div class="panel-heading">
+                <span ng-show="producto.precioAntes > producto.precio" style="font-size:12px;float: right;" class="label label-primary">Oferta</span>
+                <span ng-show="producto.stock <= 0" style="font-size:12px;float: right;" class="label label-danger">Agotado</span>
+                <a ng-href="#/productos/{{producto.id}}"><h2  class="panel-title"> {{producto.nombre}}</h2></a>
+            </div>
+            <div class="panel-body">
+                <div class="divImagen">
+                    <a ng-href="#/productos/{{producto.id}}"><img ng-src="{{producto.imagen}}" class="imagenProducto" /></a>
+                </div>
+                <tabs-producto></tabs-producto>
+                <span ng-show="tab.isSet(1)" class="precio"><p class="oferta" ng-show="producto.precioAntes >producto.precio">
+                  <del><i>{{producto.precioAntes| currency: ""}}€</i></del></p>{{producto.precio| currency: ""}}€</span>
+            </div>
+            <div class="panel-footer pieDePanel">
+                <button ng-disabled="producto.stock <= 0" class="btn btn-sm btn-primary botonComprar">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Comprar
+                </button>
+                <button ng-disabled="producto.stock <= 0" class="btn btn-sm btn-success botonComprar">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Añadir al carrito
+                </button>
+            </div>
+        </div>
+        <div class="col-md-12 cabeceraDeArticulo">
+            <span style="float:right;font-size: 12px;">
+                <span style="font-size: 20px;" ng-repeat="estrellas in productos.repetirPuntuacionMedia(producto)">
+                    <span class="estrellas glyphicon glyphicon-star" aria-hidden="true"></span>
+            </span>
+            <span style="font-size:20px;">{{productos.repetirPuntuacionMedia(producto).length}} /</span> 5
+            </span>
+        </div>
+    </div>
+</div>

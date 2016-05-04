@@ -1,0 +1,67 @@
+<div class="opiniones"  ng-repeat="opinion in producto.reviews| orderBy:fecha:true |limitTo: opinionesCtrl.limite " >
+    <div class="col-xs-4" style="padding-left: 0px;padding-right: 0px;">
+        <p class="autor">
+            <img ng-src="{{opinion.imagen}}" class="imagenUsuario"/>
+            <br/>
+            {{opinion.autor}}
+        </p>
+    </div>
+    <br/>
+    <div  class="col-xs-8" style="padding-right: 0px;margin-bottom: 10px">
+        <span style="margin: 0 auto;" ng-repeat="star in opinionesCtrl.repetirEstrellas(opinion.estrellas)">
+            <span class="estrellas glyphicon glyphicon-star" aria-hidden="true"></span>
+        </span>
+        <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">{{opinion.fecha| date:'dd/mm/yyyy hh:mm:ss'}}</span><br/>{{opinion.comentario}}</p>
+    </div>
+</div>
+
+<div style="margin-bottom:10px;text-align: center">
+    <button ng-click="opinionesCtrl.aumentaLimite()" ng-show="producto.reviews.length - opinionesCtrl.limite > 0" style="text-align: center" class="btn btn-default" ><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Cargar más</button>
+</div>
+<hr/>
+<div ng-show="opinionesCtrl.opinionEnviada">
+    <h3>Publica tu opinión</h3>
+    <hr>
+    <div class="col-xs-4" style="padding-left: 0px;padding-right: 0px !important;">
+        <p class="autor">
+            <img ng-src="{{opinionesCtrl.opinion.imagen}}" class="imagenUsuario"/><br>
+            {{opinionesCtrl.opinion.autor}}
+        </p>
+    </div>
+    <br>
+    <div style="padding-left: 15px;padding-right: 0px !important;margin-bottom: 15px" class="col-xs-8" >
+        <span ng-repeat="star in opinionesCtrl.repetirEstrellas(opinionesCtrl.opinion.estrellas)">
+            <span class="estrellas glyphicon glyphicon-star" aria-hidden="true"></span>
+        </span>
+        <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">dd/mm/yyy hh:mm:ss</span><br>{{opinionesCtrl.opinion.comentario}}</p>
+    </div>    
+
+    <form name="formularioOpinion" ng-submit="formularioOpinion.$valid && opinionesCtrl.addOpinion(producto)" style="margin-top:15px;" novalidate>
+        <div class="input-group input-group-sm">
+            <input ng-model="opinionesCtrl.opinion.estrellas" type="number" value="1" class="form-control" min="1" max="5" area-describedby="estrellas" required/>
+            <span class="input-group-addon">  <span class="estrellas glyphicon glyphicon-star" aria-hidden="true"></span></span>
+        </div>
+        <br>
+        <div class="input-group input-group-sm">
+            <span class="input-group-addon" id="nombre">Nombre</span>
+            <input placeholder="Introduce tu nombre" ng-model="opinionesCtrl.opinion.autor" type="text" class="form-control input-sm" maxlength="11" area-describedby="nombre" required/>
+        </div>
+        <br>
+        <label for="comentario">Comentario:</label><textarea placeholder="Tu comentario..." maxlength="686" ng-model="opinionesCtrl.opinion.comentario"  id="comentario" class="form-control" required></textarea>
+        <br>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <input class="btn btn-primary btn-sm" type="submit" value="Enviar"/>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <p ng-show="!formularioOpinion.$valid" style="color:red;font-size: 10px">* Debes rellenar todos los campos correctamente</p>
+        </div>
+    </form>
+</div>
+<div ng-show="!opnionesCtrl.opinionEnviada" ng-hide="opinionesCtrl.opinionEnviada" class="btn-group btn-group-justified" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+        <button class="btn btn-default btn-sm" ng-click="opinionesCtrl.setOpinionEnviada(true)">Añadir opinión</button>
+    </div>
+</div>
+
