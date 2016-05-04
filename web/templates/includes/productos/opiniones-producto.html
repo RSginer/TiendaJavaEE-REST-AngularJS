@@ -11,7 +11,7 @@
         <span style="margin: 0 auto;" ng-repeat="star in opinionesCtrl.repetirEstrellas(opinion.estrellas)">
             <span class="estrellas glyphicon glyphicon-star" aria-hidden="true"></span>
         </span>
-        <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">{{opinion.fecha| date:"'Escrito el ' dd-MM-yyyy"}}</span><br/>{{opinion.comentario}}</p>
+        <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">{{opinion.fecha| date:"'Escrito el ' dd-MM-yyyy 'a las ' hh:mma"}}</span><br/>{{opinion.comentario}}</p>
     </div>
 </div>
 
