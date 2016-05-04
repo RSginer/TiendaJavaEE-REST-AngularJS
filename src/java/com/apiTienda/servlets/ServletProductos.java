@@ -58,7 +58,12 @@ public class ServletProductos extends HttpServlet {
         TransformadorJson TJson = new TransformadorJson();
         ArrayList<Producto> listaProductos = new ArrayList<>();
         try {
+        res.addHeader("Access-Control-Allow-Origin", "*");
+        res.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
+        res.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
+        res.addHeader("Access-Control-Max-Age", "1728000");
             res.setContentType("application/json;charset=UTF-8");
+            
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendaAngularJS", "root", "root");
             if (con != null) {
 

@@ -53,13 +53,15 @@ public class Review implements Serializable{
         this.autor = autor;
     }
 
-    public String getImagenUsuario() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagenUsuario(String imagenUsuario) {
-        this.imagen = imagenUsuario;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
+
+
 
     public String getComentario() {
         return comentario;
