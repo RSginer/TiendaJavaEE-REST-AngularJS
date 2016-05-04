@@ -6,6 +6,7 @@
 package com.apiTienda.javaClass;
 
 import java.io.Serializable;
+import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -18,24 +19,22 @@ import javax.persistence.ManyToOne;
 public class Review implements Serializable{
     @Id
     private int id;
-    private int idProducto;
-    private int idUsuario;
-    String imagenUsuario;
+    String autor;
+    String imagen;
     private String comentario;
     private int estrellas;
-    @ManyToOne
-    private Producto producto;
+    private Date fecha;
 
     public Review() {
     }
 
-    public Review(int id, int idProducto, int idUsuario, String comentario, int estrellas, String imagenUsuario) {
+    public Review(int id, String autor, String imagen, String comentario, int estrellas, Date fecha) {
         this.id = id;
-        this.idProducto = idProducto;
-        this.idUsuario = idUsuario;
+        this.autor = autor;
+        this.imagen = imagen;
         this.comentario = comentario;
         this.estrellas = estrellas;
-        this.imagenUsuario=imagenUsuario;
+        this.fecha = fecha;
     }
 
     public int getId() {
@@ -46,20 +45,20 @@ public class Review implements Serializable{
         this.id = id;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public String getAutor() {
+        return autor;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public String getImagenUsuario() {
+        return imagen;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setImagenUsuario(String imagenUsuario) {
+        this.imagen = imagenUsuario;
     }
 
     public String getComentario() {
@@ -77,6 +76,18 @@ public class Review implements Serializable{
     public void setEstrellas(int estrellas) {
         this.estrellas = estrellas;
     }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+
+
+
     
     
 }

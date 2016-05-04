@@ -27,10 +27,6 @@ import java.util.ArrayList;
  */
 public class ServletProductos extends HttpServlet {
 
-    Connection con;
-    TransformadorJson TJson = new TransformadorJson();
-    ArrayList<Producto> listaProductos = new ArrayList<>();
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,11 +38,29 @@ public class ServletProductos extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        
+
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param req servlet request
+     * @param res servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+
+        Connection con;
+        TransformadorJson TJson = new TransformadorJson();
+        ArrayList<Producto> listaProductos = new ArrayList<>();
         try {
             res.setContentType("application/json;charset=UTF-8");
-            this.con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendaAngularJS", "root", "root");
-            if (this.con != null) {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendaAngularJS", "root", "root");
+            if (con != null) {
 
                 // obtener productos
                 String sqlProductos = "SELECT * FROM producto";
@@ -69,7 +83,7 @@ public class ServletProductos extends HttpServlet {
                     psReviews.setInt(1, Integer.parseInt(resProducto.getString("id"))/* AQUI LA VARIABLE idProducto */);
                     ResultSet resReviews = psReviews.executeQuery();
                     ArrayList<Review> listaReviews = new ArrayList<>();
-                    Review[] rListArray=null;
+                    Review[] rListArray = null;
                     while (resReviews.next()) {
 
                         //añadir usuario a la review
@@ -77,54 +91,31 @@ public class ServletProductos extends HttpServlet {
                         PreparedStatement psUsuario = con.prepareStatement(sqlUsuarios);
                         psUsuario.setInt(1, Integer.parseInt(resReviews.getString("idusuario")));
                         ResultSet resUsuarios = psUsuario.executeQuery();
-                        String imagenUsuario = null;
-                        int idUsuario = 0;
                         if (resUsuarios.next()) {
-                            imagenUsuario = resUsuarios.getString("imagen");
-                            idUsuario = Integer.parseInt(resUsuarios.getString("id"));
+                    
                         }
                         Review r = new Review(Integer.parseInt(resReviews.getString("id")),
-                                Integer.parseInt(resReviews.getString("idproducto")),
-                                idUsuario, resReviews.getString("comentario"), Integer.parseInt(resReviews.getString("estrellas")), imagenUsuario);
-                      
-                            listaReviews.add(r);
-                        
+                        resUsuarios.getString("nombre"),
+                                resUsuarios.getString("imagen"),
+                                resReviews.getString("comentario"),
+                                Integer.parseInt(resReviews.getString("estrellas")),
+                                resReviews.getDate("fecha")
+                                );
+                        listaReviews.add(r);
                     }
-                
                     p.setReviews(listaReviews);
-
                     // fin añadir reviews
-                  
-                         this.listaProductos.add(p);
-                    
-                   
+                    listaProductos.add(p);
                 }
-
                 try (PrintWriter out = res.getWriter()) {
-                    out.print(this.TJson.toJson(this.listaProductos.toArray()));
+                    out.printf(TJson.toJson(listaProductos.toArray()));
                 }
             } else {
-
             }
-
         } catch (SQLException ex) {
             System.out.print(ex);
         }
 
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param req servlet request
-     * @param res servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res)
-            throws ServletException, IOException {
         processRequest(req, res);
 
 //Producto p = new Producto(1,"Zapatillas","Esto son unas zapatillas", "img/imagenProducto.jpg",100,40,80);
@@ -137,9 +128,6 @@ public class ServletProductos extends HttpServlet {
 //                    out.print(this.TJson.toJson(p));
 //                }
 //    }
-
-
-
     }
 
     /**
