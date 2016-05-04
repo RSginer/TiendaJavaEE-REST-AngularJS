@@ -23,7 +23,7 @@ public class Producto implements Serializable{
     private String descripcion;
     private String imagen;
     @OneToMany(mappedBy = "producto")
-    private Review[] reviews;
+    private ArrayList<Review> reviews;
     private int stock;
     private double precio;
     private double precioAntes;
@@ -41,7 +41,7 @@ public class Producto implements Serializable{
         this.precioAntes = precioAntes;
     }
 
-    public Producto(int id, String nombre, String descripcion, String imagen, Review[] reviews, int stock, double precio, double precioAntes) {
+    public Producto(int id, String nombre, String descripcion, String imagen, ArrayList<Review> reviews, int stock, double precio, double precioAntes) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -52,11 +52,11 @@ public class Producto implements Serializable{
         this.precioAntes = precioAntes;
     }
 
-    public Review[] getReviews() {
+    public ArrayList<Review> getReviews() {
         return reviews;
     }
 
-    public void setReviews(Review[] reviews) {
+    public void setReviews(ArrayList<Review> reviews) {
         this.reviews = reviews;
     }
 
