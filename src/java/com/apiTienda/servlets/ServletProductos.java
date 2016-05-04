@@ -41,13 +41,13 @@ public class ServletProductos extends HttpServlet {
 
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaon if a servlultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param req servlet request
      * @param res servlet response
-     * @throws ServletException if a servlet-specific error occurs
+     * @throws ServletExceptiet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
@@ -58,12 +58,7 @@ public class ServletProductos extends HttpServlet {
         TransformadorJson TJson = new TransformadorJson();
         ArrayList<Producto> listaProductos = new ArrayList<>();
         try {
-        res.addHeader("Access-Control-Allow-Origin", "http://localhost:8383");
-        res.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
-        res.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
-        res.addHeader("Access-Control-Max-Age", "1728000");
-        res.setContentType("application/json;charset=UTF-8");
-            
+            res.setContentType("application/json;charset=UTF-8");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendaAngularJS", "root", "root");
             if (con != null) {
 
@@ -96,15 +91,15 @@ public class ServletProductos extends HttpServlet {
                         psUsuario.setInt(1, Integer.parseInt(resReviews.getString("idusuario")));
                         ResultSet resUsuarios = psUsuario.executeQuery();
                         if (resUsuarios.next()) {
-                    
+
                         }
                         Review r = new Review(Integer.parseInt(resReviews.getString("id")),
-                        resUsuarios.getString("nombre"),
+                                resUsuarios.getString("nombre"),
                                 resUsuarios.getString("imagen"),
                                 resReviews.getString("comentario"),
                                 Integer.parseInt(resReviews.getString("estrellas")),
                                 resReviews.getDate("fecha")
-                                );
+                        );
                         listaReviews.add(r);
                     }
                     p.setReviews(listaReviews);
