@@ -89,9 +89,7 @@ public class ServletProductos extends HttpServlet {
                         PreparedStatement psUsuario = con.prepareStatement(sqlUsuarios);
                         psUsuario.setInt(1, Integer.parseInt(resReviews.getString("idusuario")));
                         ResultSet resUsuarios = psUsuario.executeQuery();
-                        if (resUsuarios.next()) {
-
-                        }
+                        resUsuarios.next();
                         Review r = new Review(Integer.parseInt(resReviews.getString("id")),
                                 resUsuarios.getString("nombre"),
                                 resUsuarios.getString("imagen"),
