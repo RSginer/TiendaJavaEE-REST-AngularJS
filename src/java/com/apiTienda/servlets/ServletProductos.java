@@ -11,12 +11,6 @@ import com.apiTienda.javaClass.TransformadorJson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,15 +20,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.ejb.Stateless;
 
 /**
  *
  * @author ruben
  */
-@Path("/api/productos")
 public class ServletProductos extends HttpServlet {
 
     /**
