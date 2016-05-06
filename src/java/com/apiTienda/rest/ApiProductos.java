@@ -5,9 +5,9 @@
  */
 package com.apiTienda.rest;
 
-import com.apiTienda.javaClass.Producto;
-import com.apiTienda.javaClass.Review;
-import com.apiTienda.javaClass.TransformadorJson;
+import com.apiTienda.objetos.Producto;
+import com.apiTienda.objetos.Review;
+import com.apiTienda.objetos.TransformadorJson;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

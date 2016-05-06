@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.apiTienda.javaClass;
+package com.apiTienda.objetos;
 
 import java.io.Serializable;
 
