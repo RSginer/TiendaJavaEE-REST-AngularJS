@@ -6,7 +6,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Productos</servlet-name>
-        <url-pattern>/api/productos</url-pattern>
+        <url-pattern>/api/productos/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

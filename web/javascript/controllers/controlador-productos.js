@@ -27,7 +27,7 @@
         //            ]
         //        }]
 
-        $http.get('http://localhost:8080/TiendaJavaEE/api/productos').success(function(data) {
+        $http.get('http://localhost:8080/TiendaJavaEE/api/productos/').success(function(data) {
             tienda.productos = data;
         });
     }]);
