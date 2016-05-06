@@ -1,11 +1,11 @@
 <h2 style="text-align:center;">Aqui la ficha del producto</h2>
-<p><strong>Nombre:</strong> {{producto.p.nombre}}</p>
-<p><img width="200px" ng-src="{{producto.p.imagen}}"/></p>
-<p><strong>Descripcion:</strong> {{producto.p.descripcion}}</p>
-<p><strong>Precio:</strong> {{producto.p.precio}}</p>
-<p><strong>Stock:</strong> {{producto.p.stock}}</p>
+<p><strong>Nombre:</strong> {{CtrlFichaP.p.nombre}}</p>
+<p><img width="200px" ng-src="{{CtrlFichaP.p.imagen}}"/></p>
+<p><strong>Descripcion:</strong> {{CtrlFichaP.p.descripcion}}</p>
+<p><strong>Precio:</strong> {{CtrlFichaP.p.precio}}</p>
+<p><strong>Stock:</strong> {{CtrlFichaP.p.stock}}</p>
 <p><strong>Opiniones:</strong></p>
-<ul ng-repeat="review in producto.p.reviews">
+<ul ng-repeat="review in CtrlFichaP.p.reviews">
     <li>Autor: {{review.autor}}</li>
     <li>Comentario: {{review.comentario}}</li>
     <li>Estrellas: {{review.estrellas}}</li>
