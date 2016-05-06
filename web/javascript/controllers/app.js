@@ -14,10 +14,17 @@
                     this.pagina = 2;
                 },
                 controllerAs: 'producto'
+            }).when('/productos/:id', {
+                templateUrl:'templates/paginas/productos/fichaProducto/index.html',
+                controller:function($http,$routeParams){
+                    fichaProducto = this;
+                        $http.get('api/productos/' + $routeParams.id).success(function(data) {
+                        fichaProducto.p = data;
+                        });
+                },
+                controllerAs:'CtrlFichaP'
             }).when('/error-404', {
                 templateUrl: 'templates/paginas/error404/index.html'
-            }).otherwise({
-                redirectTo: '/error-404'
             });
         })
         .controller('ControllerAppTienda', [function() {
