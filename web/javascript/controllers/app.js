@@ -22,7 +22,7 @@
                         fichaProducto.p = data;
                         });
                 },
-                controllerAs:'CtrlFichaP'
+                controllerAs:'producto'
             }).when('/error-404', {
                 templateUrl: 'templates/paginas/error404/index.html'
             });
