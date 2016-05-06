@@ -7,22 +7,16 @@ package com.apiTienda.javaClass;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 /**
  *
  * @author ruben
  */
-@Entity
 public class Producto implements Serializable{
-    @Id
     private int id;
     private String nombre;
     private String descripcion;
     private String imagen;
-    @OneToMany(mappedBy = "producto")
     private ArrayList<Review> reviews;
     private int stock;
     private double precio;

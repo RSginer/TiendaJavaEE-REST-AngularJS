@@ -100,7 +100,6 @@ public class ApiProductos {
           Producto p= new Producto();
         try {
             Connection  con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendaAngularJS", "root", "root");
-          
             String sqlProductos = "SELECT * FROM producto WHERE id= ?";
             PreparedStatement psProductos = con.prepareStatement(sqlProductos);
             psProductos.setInt(1, id);

@@ -6,16 +6,12 @@
 package com.apiTienda.javaClass;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 /**
  *
  * @author ruben
  */
-@Entity
 public class Usuario implements Serializable{
-    @Id
     private int id;
     private String nombre;
     private String imagen = "img/user.jpg";

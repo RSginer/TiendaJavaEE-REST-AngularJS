@@ -7,17 +7,12 @@ package com.apiTienda.javaClass;
 
 import java.io.Serializable;
 import java.sql.Date;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author ruben
  */
-@Entity
 public class Review implements Serializable{
-    @Id
     private int id;
     String autor;
     String imagen;
