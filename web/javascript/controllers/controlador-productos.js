@@ -10,7 +10,8 @@
         //            descripcion: "La línea adidas Originals es una creación reciente del gran fabricante adidas. Lejos quedan ya los primeros días de la marca, cuando Adi Dassler fabricaba a mano sus primeros zapatos, instalado en los 20 m² de la lavandería de su madre. Las deportivas adidas llevan casi un siglo equipando atletas de todas clases con el mejor material posible. ",
         //            imagen: "img/zapatillasAdidas.jpg",
         //            precio: 89,
-        //            agotado: false,
+        //            stock:100,
+        //            precioAntes:100,
         //            reviews: [
         //                {
         //                    estrellas: 4,
