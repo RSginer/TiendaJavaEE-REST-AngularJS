@@ -12,7 +12,7 @@ import java.sql.Date;
  *
  * @author ruben
  */
-public class Review implements Serializable{
+public class Review{
     private int id;
     String autor;
     String imagen;
@@ -81,10 +81,5 @@ public class Review implements Serializable{
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
-
-
-
-    
     
 }
