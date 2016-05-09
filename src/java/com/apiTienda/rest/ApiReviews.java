@@ -54,7 +54,7 @@ public class ApiReviews {
 
     @GET
     @Path("/{idProducto}")
-    public String ObtenerReviewsPorId(@PathParam("idProducto") Integer idProducto) {
+    public String ObtenerReviewsPorIdProducto(@PathParam("idProducto") Integer idProducto) {
         ArrayList<Review> lista = new ArrayList<>();
         try {
             this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendaAngularJS", "root", "root");
