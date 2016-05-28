@@ -97,4 +97,29 @@ public class JDBC {
         return user;
     }
 
+    /**
+     * Busca un producto en la base de datos dado un id
+     *
+     * @param idProducto
+     * @return devuelve un objeto Producto
+     * @throws SQLException
+     */
+    public Producto obtenerProductoPorId(int idProducto) throws SQLException {
+        Producto product;
+        String sqlProducto = "SELECT * FROM producto WHERE id = ?";
+        PreparedStatement psProducto = this.conn.prepareStatement(sqlProducto);
+        psProducto.setInt(1, idProducto);
+        ResultSet resProducto = psProducto.executeQuery();
+        resProducto.next();
+        product = new Producto(Integer.parseInt(resProducto.getString("id")),
+                resProducto.getString("nombre"),
+                resProducto.getString("descripcion"),
+                resProducto.getString("imagen"),
+                Integer.parseInt(resProducto.getString("stock")),
+                Double.parseDouble(resProducto.getString("precio")),
+                Double.parseDouble(resProducto.getString("precioAntes")));
+        product.setReviews(this.obtenerReviewsPorProducto(Integer.parseInt(resProducto.getString("id"))));
+        return product;
+    }
+
 }
