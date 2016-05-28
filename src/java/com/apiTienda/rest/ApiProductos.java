@@ -18,7 +18,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
- *
+ * Api RESTful de productos
  * @author ruben
  */
 @Path("/productos")
@@ -31,6 +31,11 @@ public class ApiProductos {
             System.out.println("Error al conectar con la base de datos " + ex.getMessage());
         }
     }
+    
+    /**
+     * Obtiene un array Json de todos los productos existentes en la base de datos
+     * @return Array Json de productos
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public String obtenerTodos(){
@@ -43,6 +48,11 @@ public class ApiProductos {
         }
     return TJson.toJson(listaProductos);}
     
+    /**
+     * Dado un id de producto obtiene un objeto Json
+     * @param id
+     * @return 
+     */
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
