@@ -40,7 +40,7 @@ public class ApiProductos {
         try {
             listaProductos = this.dataBase.obtenerProductos();
         } catch (SQLException ex) {
-            System.out.println("error al rellenar la lista " + ex.getMessage());
+            System.out.println("Error al rellenar la lista " + ex.getMessage());
         }
     return this.TJson.toJson(listaProductos);}
     
@@ -53,11 +53,11 @@ public class ApiProductos {
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public String obtenerPorId(@PathParam("id") Integer id){
-          Producto p= new Producto();
+        Producto p= new Producto();
         try {
            p = this.dataBase.obtenerProductoPorId(id);
         } catch (SQLException ex) {
-            System.out.println("error al obtener el producto " + ex.getMessage());
+            System.out.println("Error al obtener el producto " + ex.getMessage());
         }
     return this.TJson.toJson(p);}
     
