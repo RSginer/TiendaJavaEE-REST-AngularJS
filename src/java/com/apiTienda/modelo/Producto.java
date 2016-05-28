@@ -7,6 +7,7 @@ package com.apiTienda.modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Producto implements Serializable{
     private String nombre;
     private String descripcion;
     private String imagen;
-    private ArrayList<Review> reviews;
+    private List<Review> reviews;
     private int stock;
     private double precio;
     private double precioAntes;
@@ -53,11 +54,11 @@ public class Producto implements Serializable{
         this.precioAntes = precioAntes;
     }
 
-    public ArrayList<Review> getReviews() {
+    public List<Review> getReviews() {
         return reviews;
     }
 
-    public void setReviews(ArrayList<Review> reviews) {
+    public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
 

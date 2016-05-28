@@ -36,7 +36,7 @@ public class ApiProductos {
         try {
             this.dataBase = new JDBC();
         } catch (SQLException ex) {
-            Logger.getLogger(ApiProductos.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error al conectar con la base de datos " + ex.getMessage());
         }
     }
     @GET
@@ -47,7 +47,7 @@ public class ApiProductos {
         try {
             listaProductos = this.dataBase.obtenerProductos();
         } catch (SQLException ex) {
-            System.out.println("error al rellenar la lista");
+            System.out.println("error al rellenar la lista " + ex.getMessage());
         }
     return TJson.toJson(listaProductos);}
     
