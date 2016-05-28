@@ -7,18 +7,10 @@ package com.apiTienda.rest;
 
 import com.apiTienda.datos.JDBC;
 import com.apiTienda.modelo.Producto;
-import com.apiTienda.modelo.Review;
 import com.apiTienda.modelo.TransformadorJson;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
