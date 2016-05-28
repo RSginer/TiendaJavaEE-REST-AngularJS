@@ -5,8 +5,8 @@
  */
 package com.apiTienda.rest;
 
-import com.apiTienda.objetos.Review;
-import com.apiTienda.objetos.TransformadorJson;
+import com.apiTienda.modelo.Review;
+import com.apiTienda.modelo.TransformadorJson;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
