@@ -5,7 +5,6 @@
  */
 package com.apiTienda.modelo;
 
-import java.io.Serializable;
 import java.sql.Date;
 
 /**
@@ -55,8 +54,6 @@ public class Review{
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
-
-
 
     public String getComentario() {
         return comentario;

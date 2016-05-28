@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.apiTienda.datos;
 
 import com.apiTienda.modelo.Producto;
@@ -18,8 +13,9 @@ import java.util.List;
 
 /**
  * Clase para el manejo de datos con la base de datos
+ *
  * @author Rubén
- * 
+ *
  */
 public class JDBC {
 
@@ -28,10 +24,12 @@ public class JDBC {
     public JDBC() throws SQLException {
         this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendaAngularJS", "root", "root");
     }
+
     /**
      * Busca en la base de datos todos los productos y los retorna en una lista
+     *
      * @return devuelve una lista de objetos producto
-     * @throws SQLException 
+     * @throws SQLException
      */
     public List<Producto> obtenerProductos() throws SQLException {
         List<Producto> listaProductos = new ArrayList<>();
@@ -51,12 +49,15 @@ public class JDBC {
         }
         return listaProductos;
     }
-/**
- * Dado un id de producto devuelve una lista con todas sus reviews que obtiene de la base de datos
- * @param idProducto
- * @return devuelve un List de reviews
- * @throws SQLException 
- */
+
+    /**
+     * Dado un id de producto devuelve una lista con todas sus reviews que
+     * obtiene de la base de datos
+     *
+     * @param idProducto
+     * @return devuelve un List de reviews
+     * @throws SQLException
+     */
     public List<Review> obtenerReviewsPorProducto(int idProducto) throws SQLException {
         List<Review> listaReviews = new ArrayList<>();
         String sqlReviews = "SELECT * FROM review where idproducto=?";
@@ -76,21 +77,24 @@ public class JDBC {
         }
         return listaReviews;
     }
+
     /**
      * Obtiene un usuario dado un id
+     *
      * @param idUsuario
      * @return devuelve un objeto Usuario
-     * @throws SQLException 
+     * @throws SQLException
      */
-    public Usuario obtenerUsuarioPorId(int idUsuario) throws SQLException{
-    Usuario user = new Usuario();
-         String sqlUsuarios = "SELECT * FROM usuario where id=?";
-            PreparedStatement psUsuario = this.conn.prepareStatement(sqlUsuarios);
-            psUsuario.setInt(1,idUsuario);
-            ResultSet resUsuarios = psUsuario.executeQuery();
-            resUsuarios.next();
-            user.setImagen(resUsuarios.getString("imagen"));
-            user.setNombre(resUsuarios.getString("nombre"));
-    return user;}
+    public Usuario obtenerUsuarioPorId(int idUsuario) throws SQLException {
+        Usuario user = new Usuario();
+        String sqlUsuarios = "SELECT * FROM usuario where id=?";
+        PreparedStatement psUsuario = this.conn.prepareStatement(sqlUsuarios);
+        psUsuario.setInt(1, idUsuario);
+        ResultSet resUsuarios = psUsuario.executeQuery();
+        resUsuarios.next();
+        user.setImagen(resUsuarios.getString("imagen"));
+        user.setNombre(resUsuarios.getString("nombre"));
+        return user;
+    }
 
 }
