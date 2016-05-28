@@ -24,6 +24,8 @@ import javax.ws.rs.core.MediaType;
 @Path("/productos")
 public class ApiProductos {
     private JDBC dataBase;
+    private TransformadorJson TJson = new TransformadorJson();
+    
     public ApiProductos()  {
         try {
             this.dataBase = new JDBC();
@@ -39,14 +41,13 @@ public class ApiProductos {
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public String obtenerTodos(){
-        TransformadorJson TJson = new TransformadorJson();
         List<Producto> listaProductos = new ArrayList<>();
         try {
             listaProductos = this.dataBase.obtenerProductos();
         } catch (SQLException ex) {
             System.out.println("error al rellenar la lista " + ex.getMessage());
         }
-    return TJson.toJson(listaProductos);}
+    return this.TJson.toJson(listaProductos);}
     
     /**
      * Dado un id de producto obtiene un objeto Json
@@ -57,14 +58,12 @@ public class ApiProductos {
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public String obtenerPorId(@PathParam("id") Integer id){
-          TransformadorJson TJson = new TransformadorJson();
           Producto p= new Producto();
         try {
            p = this.dataBase.obtenerProductoPorId(id);
         } catch (SQLException ex) {
             System.out.println("error al obtener el producto " + ex.getMessage());
         }
-    return TJson.toJson(p);}
+    return this.TJson.toJson(p);}
     
-
 }
