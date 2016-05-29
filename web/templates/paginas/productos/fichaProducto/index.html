@@ -40,7 +40,7 @@
         <span ng-repeat="star in CtrlFichaP.repetirEstrellas(CtrlFichaP.opinion.estrellas)">
             <span class="estrellas glyphicon glyphicon-star" aria-hidden="true"></span>
         </span>
-        <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">dd/mm/yyy hh:mm:ss</span><br>{{CtrlFichaP.opinion.comentario}}</p>
+        <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">Escrito el  dd-MM-yyyy a las  HH:mm</span><br>{{CtrlFichaP.opinion.comentario}}</p>
     </div>    
 
     <form name="formularioOpinion" ng-submit="formularioOpinion.$valid && CtrlFichaP.addOpinion(producto)" style="margin-top:15px;" novalidate>

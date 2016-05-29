@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li ng-class="{active:  menu.pagina()==='/'}"><a href="#/">Inicio</a></li>
-                <li ng-class="{active:  menu.pagina()==='/productos'}"><a href="#/productos">Productos</a></li>
+                <li ng-class="{active:  menu.pagina().includes('/productos')}"><a href="#/productos">Productos</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>

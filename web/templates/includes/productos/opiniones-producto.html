@@ -14,9 +14,10 @@
         <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">{{opinion.fecha | date:"'Escrito el ' dd-MM-yyyy 'a las ' HH:mm"}}</span><br/>{{opinion.comentario}}</p>
     </div>
 </div>
-
+<div ng-show="this.producto.reviews.length==0"><p>No hay ninguna opinión todavía</p></div>
 <div style="margin-bottom:10px;text-align: center">
-    <button ng-click="opinionesCtrl.aumentaLimite()" ng-show="producto.reviews.length - opinionesCtrl.limite > 0" style="text-align: center" class="btn btn-default" ><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Cargar más</button>
+    <button ng-click="opinionesCtrl.aumentaLimite()" ng-show="producto.reviews.length - opinionesCtrl.limite > 0" style="text-align: center" class="btn btn-default" >
+        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Cargar más</button>
 </div>
 <hr/>
 <div ng-show="opinionesCtrl.opinionEnviada">
@@ -33,7 +34,7 @@
         <span ng-repeat="star in opinionesCtrl.repetirEstrellas(opinionesCtrl.opinion.estrellas)">
             <span class="estrellas glyphicon glyphicon-star" aria-hidden="true"></span>
         </span>
-        <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">dd/mm/yyy hh:mm:ss</span><br>{{opinionesCtrl.opinion.comentario}}</p>
+        <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">Escrito el  dd-MM-yyyy a las  HH:mm</span><br>{{opinionesCtrl.opinion.comentario}}</p>
     </div>    
 
     <form name="formularioOpinion" ng-submit="formularioOpinion.$valid && opinionesCtrl.addOpinion(producto)" style="margin-top:15px;" novalidate>
