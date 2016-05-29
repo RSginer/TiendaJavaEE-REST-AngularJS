@@ -5,6 +5,7 @@
         tienda = this;
         tienda.productos = [];
 
+        //       MODELO DE ARRAY DE PRODUCTOS
         //       [{
         //            nombre: "Adidas SuperStar",
         //            descripcion: "La línea adidas Originals es una creación reciente del gran fabricante adidas. Lejos quedan ya los primeros días de la marca, cuando Adi Dassler fabricaba a mano sus primeros zapatos, instalado en los 20 m² de la lavandería de su madre. Las deportivas adidas llevan casi un siglo equipando atletas de todas clases con el mejor material posible. ",

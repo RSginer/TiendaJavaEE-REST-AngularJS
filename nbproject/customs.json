@@ -1,6 +1,8 @@
 {
     "elements": {
-        "tabs-producto": {}
+        "tabs-producto": {},
+        "opiniones-producto": {},
+        "listado-productos": {}
     },
     "attributes": {}
 }

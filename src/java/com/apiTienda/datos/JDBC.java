@@ -71,7 +71,7 @@ public class JDBC {
                     user.getImagen(),
                     resReviews.getString("comentario"),
                     Integer.parseInt(resReviews.getString("estrellas")),
-                    resReviews.getDate("fecha")
+                    resReviews.getTimestamp("fecha")
             );
             listaReviews.add(r);
         }

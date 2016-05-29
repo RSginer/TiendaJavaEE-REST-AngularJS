@@ -69,7 +69,7 @@
                     return repeticiones;
                 };
                 this.addOpinion = function (producto) {
-                    this.opinion.fecha= new Date().toLocaleString();
+                    this.opinion.fecha= Date.now();
                     //Aqui añadir el POST al backend
                     producto.reviews.push(this.opinion);
                     this.opinionEnviada = this.setOpinionEnviada(true);
