@@ -31,7 +31,7 @@ public class JDBC {
      * @return devuelve una lista de objetos producto
      * @throws SQLException
      */
-    public List<Producto> obtenerProductos() throws SQLException {
+    public List<Producto> getProductos() throws SQLException {
         List<Producto> listaProductos = new ArrayList<>();
         String sqlProductos = "SELECT * FROM producto";
         PreparedStatement psProductos = this.conn.prepareStatement(sqlProductos);
@@ -44,7 +44,7 @@ public class JDBC {
                     Integer.parseInt(resProducto.getString("stock")),
                     Double.parseDouble(resProducto.getString("precio")),
                     Double.parseDouble(resProducto.getString("precioAntes")));
-            p.setReviews(this.obtenerReviewsPorProducto(Integer.parseInt(resProducto.getString("id"))));
+            p.setReviews(this.getReviewsDeProducto(Integer.parseInt(resProducto.getString("id"))));
             listaProductos.add(p);
         }
         return listaProductos;
@@ -58,14 +58,14 @@ public class JDBC {
      * @return devuelve un List de reviews
      * @throws SQLException
      */
-    public List<Review> obtenerReviewsPorProducto(int idProducto) throws SQLException {
+    public List<Review> getReviewsDeProducto(int idProducto) throws SQLException {
         List<Review> listaReviews = new ArrayList<>();
         String sqlReviews = "SELECT * FROM review where idproducto=?";
         PreparedStatement psReviews = this.conn.prepareStatement(sqlReviews);
         psReviews.setInt(1, idProducto);
         ResultSet resReviews = psReviews.executeQuery();
         while (resReviews.next()) {
-            Usuario user = this.obtenerUsuarioPorId(Integer.parseInt(resReviews.getString("idusuario")));
+            Usuario user = this.getUsuarioPorId(Integer.parseInt(resReviews.getString("idusuario")));
             Review r = new Review(Integer.parseInt(resReviews.getString("id")),
                     user.getNombre(),
                     user.getImagen(),
@@ -78,6 +78,14 @@ public class JDBC {
         return listaReviews;
     }
 
+    public Connection getConn() {
+        return conn;
+    }
+
+    public void setConn(Connection conn) {
+        this.conn = conn;
+    }
+
     /**
      * Obtiene un usuario dado un id
      *
@@ -85,7 +93,7 @@ public class JDBC {
      * @return devuelve un objeto Usuario
      * @throws SQLException
      */
-    public Usuario obtenerUsuarioPorId(int idUsuario) throws SQLException {
+    public Usuario getUsuarioPorId(int idUsuario) throws SQLException {
         Usuario user = new Usuario();
         String sqlUsuarios = "SELECT * FROM usuario where id=?";
         PreparedStatement psUsuario = this.conn.prepareStatement(sqlUsuarios);
@@ -104,7 +112,7 @@ public class JDBC {
      * @return devuelve un objeto Producto
      * @throws SQLException
      */
-    public Producto obtenerProductoPorId(int idProducto) throws SQLException {
+    public Producto getProductoPorId(int idProducto) throws SQLException {
         Producto product;
         String sqlProducto = "SELECT * FROM producto WHERE id = ?";
         PreparedStatement psProducto = this.conn.prepareStatement(sqlProducto);
@@ -118,7 +126,7 @@ public class JDBC {
                 Integer.parseInt(resProducto.getString("stock")),
                 Double.parseDouble(resProducto.getString("precio")),
                 Double.parseDouble(resProducto.getString("precioAntes")));
-        product.setReviews(this.obtenerReviewsPorProducto(Integer.parseInt(resProducto.getString("id"))));
+        product.setReviews(this.getReviewsDeProducto(Integer.parseInt(resProducto.getString("id"))));
         return product;
     }
 

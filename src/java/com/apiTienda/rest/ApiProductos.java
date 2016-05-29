@@ -38,7 +38,7 @@ public class ApiProductos {
     public String obtenerTodos(){
         List<Producto> listaProductos = new ArrayList<>();
         try {
-            listaProductos = this.dataBase.obtenerProductos();
+            listaProductos = this.dataBase.getProductos();
         } catch (SQLException ex) {
             System.out.println("Error al rellenar la lista " + ex.getMessage());
         }
@@ -55,7 +55,7 @@ public class ApiProductos {
     public String obtenerPorId(@PathParam("id") Integer id){
         Producto p= new Producto();
         try {
-           p = this.dataBase.obtenerProductoPorId(id);
+           p = this.dataBase.getProductoPorId(id);
         } catch (SQLException ex) {
             System.out.println("Error al obtener el producto " + ex.getMessage());
         }
