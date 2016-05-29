@@ -16,7 +16,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
 /**
- *
+ * Api RESTful de reviews
  * @author ruben
  */
 @Path("/reviews")
