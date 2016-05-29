@@ -31,7 +31,7 @@ public class ApiReviews {
 
     @GET
     @Path("/{idProducto}")
-    public String ObtenerReviewsPorIdProducto(@PathParam("idProducto") Integer idProducto) {
+    public String getReviewsPorProducto(@PathParam("idProducto") Integer idProducto) {
         List<Review> listaReviews = new ArrayList<>();
         try {
             listaReviews = this.dataBase.getReviewsDeProducto(idProducto);
