@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 public class Review{
     private int id;
     private int idProducto;
+    private int idUsuario;
     String autor;
     String imagen;
     private String comentario;
@@ -26,9 +27,11 @@ public class Review{
         this.idProducto = idProducto;
     }
 
-    public Review(int id, String autor, String imagen, String comentario, int estrellas, Timestamp fecha) {
+    public Review(int id,int idUsuario,int idProducto, String autor, String imagen, String comentario, int estrellas, Timestamp fecha) {
         this.id = id;
+        this.idUsuario = idUsuario;
         this.autor = autor;
+        this.idProducto = idProducto;
         this.imagen = imagen;
         this.comentario = comentario;
         this.estrellas = estrellas;
@@ -37,6 +40,14 @@ public class Review{
 
     public int getId() {
         return id;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public void setId(int id) {

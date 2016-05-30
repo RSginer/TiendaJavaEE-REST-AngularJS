@@ -15,6 +15,7 @@
         //            precioAntes:100,
         //            reviews: [
         //                {
+        //                    idusuario: 1,
         //                    estrellas: 4,
         //                    autor: "Rubén",
         //                    imagen: "img/user.jpg",

@@ -5,7 +5,6 @@
                     restrict: 'E',
                     templateUrl: './templates/includes/productos/lista-productos.html',
                     controller: function () {
-                        
                         this.repetirPuntuacionMedia = function (producto) {
                             this.repeticiones = [];
                             this.media = 0;

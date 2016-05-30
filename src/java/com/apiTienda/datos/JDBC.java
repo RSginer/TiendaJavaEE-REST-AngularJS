@@ -65,8 +65,11 @@ public class JDBC {
         psReviews.setInt(1, idProducto);
         ResultSet resReviews = psReviews.executeQuery();
         while (resReviews.next()) {
-            Usuario user = this.getUsuarioPorId(Integer.parseInt(resReviews.getString("idusuario")));
+            int idUsuario =  Integer.parseInt(resReviews.getString("idusuario"));
+            Usuario user = this.getUsuarioPorId(idUsuario);
             Review r = new Review(Integer.parseInt(resReviews.getString("id")),
+                    idUsuario,
+                    idProducto,
                     user.getNombre(),
                     user.getImagen(),
                     resReviews.getString("comentario"),

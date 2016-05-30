@@ -27,7 +27,6 @@
                         $http.get('api/productos/' + idProducto).success(function (data) {
                         $scope.CtrlFichaP.producto = data;
                         });
-                       
                     },
                     controllerAs: 'CtrlFichaP'
                 }).when('/error-404', {
