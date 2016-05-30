@@ -46,7 +46,6 @@ public class ApiReviews {
     @POST
     public void setReview(String JSonReview){
        Review r = (Review) this.TJson.fromJson(JSonReview, Review.class);
-       System.out.println(JSonReview);
         try {
             this.dataBase.setReview(r);
             
