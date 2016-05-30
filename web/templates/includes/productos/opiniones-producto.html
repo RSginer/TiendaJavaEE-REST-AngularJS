@@ -20,7 +20,7 @@
         <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Cargar más</button>
 </div>
 <hr/>
-<div ng-show="opinionesCtrl.opinionEnviada">
+<div ng-show="!opinionesCtrl.opinionEnviada">
     <h3>Publica tu opinión</h3>
     <hr>
     <div class="col-xs-4" style="padding-left: 0px;padding-right: 0px !important;">
@@ -52,7 +52,7 @@
         <br>
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
-                <input class="btn btn-primary btn-sm" type="submit" value="Enviar"/>
+                <input class="btn btn-primary btn-sm" ng-click="opinionesCtrl.opinionEnviada=true" type="submit" value="Enviar"/>
             </div>
         </div>
         <div class="col-md-12">
@@ -60,9 +60,8 @@
         </div>
     </form>
 </div>
-<div ng-show="!opnionesCtrl.opinionEnviada" ng-hide="opinionesCtrl.opinionEnviada" class="btn-group btn-group-justified" role="group" aria-label="...">
-    <div class="btn-group" role="group">
-        <button class="btn btn-default btn-sm" ng-click="opinionesCtrl.setOpinionEnviada(true)">Añadir opinión</button>
-    </div>
+<div ng-show="opinionesCtrl.opinionEnviada" style="text-align: center">
+    <h3><span style="color:green"class="glyphicon glyphicon glyphicon-ok"></span>Opinion enviada con éxito</h2>
+    <button class="btn" ng-click="opinionesCtrl.opinionEnviada=false" >Añadir más</button>
 </div>
 

@@ -86,7 +86,6 @@
                                 data: this.opinion
                             };
                             $http(req).success(function () {
-                                this.opinionEnviada = true;
                                 $http.get('api/reviews/' + producto.id).success(function(data){
                                     producto.reviews = data;
                                 });
