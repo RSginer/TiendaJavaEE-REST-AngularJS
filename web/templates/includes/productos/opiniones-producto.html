@@ -1,4 +1,4 @@
-<div class="opiniones"  ng-repeat="opinion in this.producto.reviews| orderBy:fecha:true |limitTo: opinionesCtrl.limite " >
+<div class="opiniones"  ng-repeat="opinion in p.reviews| orderBy:fecha:true |limitTo: opinionesCtrl.limite " >
     <div class="col-xs-4" style="padding-left: 0px;padding-right: 0px;">
         <p class="autor">
             <img ng-src="{{opinion.imagen}}" class="imagenUsuario"/>
@@ -14,9 +14,9 @@
         <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">{{opinion.fecha | date:"'Escrito el ' dd-MM-yyyy 'a las ' HH:mm"}}</span><br/>{{opinion.comentario}}</p>
     </div>
 </div>
-<div ng-show="this.producto.reviews.length==0"><p>No hay ninguna opinión todavía</p></div>
+<div ng-show="p.reviews.length==0"><p>No hay ninguna opinión todavía</p></div>
 <div style="margin-bottom:10px;text-align: center">
-    <button ng-click="opinionesCtrl.aumentaLimite()" ng-show="producto.reviews.length - opinionesCtrl.limite > 0" style="text-align: center" class="btn btn-default" >
+    <button ng-click="opinionesCtrl.aumentaLimite()" ng-show="p.reviews.length - opinionesCtrl.limite > 0" style="text-align: center" class="btn btn-default" >
         <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Cargar más</button>
 </div>
 <hr/>
@@ -37,7 +37,7 @@
         <p  class="comentario" style="word-wrap:break-word;"><span class="fechaComentario">Escrito el  dd-MM-yyyy a las  HH:mm</span><br>{{opinionesCtrl.opinion.comentario}}</p>
     </div>    
 
-    <form name="formularioOpinion" ng-submit="formularioOpinion.$valid && opinionesCtrl.addOpinion(producto)" style="margin-top:15px;" novalidate>
+    <form name="formularioOpinion" ng-submit="formularioOpinion.$valid && opinionesCtrl.addOpinion(p)" style="margin-top:15px;" novalidate>
         <div class="input-group input-group-sm">
             <input ng-model="opinionesCtrl.opinion.estrellas" type="number" value="1" class="form-control" min="1" max="5" area-describedby="estrellas" required/>
             <span class="input-group-addon">  <span class="estrellas glyphicon glyphicon-star" aria-hidden="true"></span></span>

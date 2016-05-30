@@ -1,7 +1,7 @@
-    <ul class="nav nav-tabs">
+ <ul class="nav nav-tabs">
         <li ng-class="{active: tab.isSet(1)}"><a  ng-click="tab.setTab(1)" href="">Descripción</a></li>
         <li ng-class="{active: tab.isSet(2)}"> <a ng-click="tab.setTab(2)" href="">Opiniones <span class="badge">{{producto.reviews.length}}</span></a></li>
     </ul>
     <br />
     <descripcion-producto  class="descProducto" ng-show="tab.isSet(1)"></descripcion-producto>
-    <opiniones-producto ng-show="tab.isSet(2)"></opiniones-producto>
+    <opiniones-producto producto="producto" ng-show="tab.isSet(2)"></opiniones-producto>

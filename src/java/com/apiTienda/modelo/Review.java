@@ -1,15 +1,14 @@
 package com.apiTienda.modelo;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
+import java.sql.Timestamp;
 /**
  *
  * @author ruben
  */
 public class Review{
     private int id;
+    private int idProducto;
     String autor;
     String imagen;
     private String comentario;
@@ -17,6 +16,14 @@ public class Review{
     private Timestamp fecha;
 
     public Review() {
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public Review(int id, String autor, String imagen, String comentario, int estrellas, Timestamp fecha) {

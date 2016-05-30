@@ -1,9 +1,9 @@
 (function() {
     angular.module('app-productos', ["directivas-productos"])
 
-    .controller("ControladorProductos", ['$http', function($http) {
+    .controller("ControladorProductos", ['$http','$scope', function($http,$scope) {
         tienda = this;
-        tienda.productos = [];
+        $scope.tienda.productos = [];
 
         //       MODELO DE ARRAY DE PRODUCTOS
         //       [{
@@ -30,7 +30,7 @@
         //        }]
 
         $http.get('api/productos/').success(function(data) {
-            tienda.productos = data;
+            $scope.tienda.productos = data;
         });
     }]);
 
