@@ -50,7 +50,7 @@
                     scope: {
                         p: "=producto"
                     },
-                    controller: function () {
+                    controller: function ($http) {
                         this.limite = 2;
                         this.aumentaLimite = function () {
                             this.limite += 3;
@@ -61,7 +61,10 @@
                         };
                         this.opinion = {
                             estrellas: 5,
-                            autor: 'Anónimo', imagen: "img/user.jpg",
+                            idProducto: null,
+                            idUsuario: 1,
+                            autor: 'Anónimo',
+                            imagen: "img/user.jpg",
                             fecha: ""
                         };
                         this.repetirEstrellas = function (s) {
@@ -73,15 +76,30 @@
                         };
                         this.addOpinion = function (producto) {
                             this.opinion.fecha = Date.now();
-                            //Aqui añadir el POST al backend
-                            producto.reviews.push(this.opinion);
-                            this.opinionEnviada = this.setOpinionEnviada(true);
-                            this.opinion = {
-                                estrellas: 5,
-                                autor: 'Anónimo',
-                                imagen: "img/user.jpg",
-                                fecha: ""
-                            }
+                            this.opinion.idProducto = producto.id;
+                            var req = {
+                                method: 'POST',
+                                url: 'api/reviews',
+                                headers: {
+                                    'Content-Type': undefined
+                                },
+                                data: this.opinion
+                            };
+                            $http(req).success(function () {
+                                this.opinionEnviada = true;
+                                $http.get('api/reviews/' + producto.id).success(function(data){
+                                    producto.reviews = data;
+                                });
+                                this.opinion = {
+                                    estrellas: 5,
+                                    idProducto: producto.id,
+                                    idUsuario: 1,
+                                    autor: 'Anónimo',
+                                    imagen: "img/user.jpg",
+                                    fecha: ""
+                                }
+                            });
+
                         };
                     },
                     controllerAs: 'opinionesCtrl'

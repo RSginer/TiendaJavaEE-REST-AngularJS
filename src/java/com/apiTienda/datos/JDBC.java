@@ -132,5 +132,17 @@ public class JDBC {
         product.setReviews(this.getReviewsDeProducto(Integer.parseInt(resProducto.getString("id"))));
         return product;
     }
+    
+    public void setReview(Review r) throws SQLException{
+    String sql = "INSERT INTO review VALUES(?,?,?,?,?,?)";
+    PreparedStatement ps = this.conn.prepareStatement(sql);
+    ps.setInt(1, r.getIdProducto());
+    ps.setInt(2,r.getIdUsuario());
+    ps.setInt(3, r.getEstrellas());
+    ps.setString(4, r.getComentario());
+    ps.setInt(5, r.getId());
+    ps.setTimestamp(6, r.getFecha());
+    ps.executeUpdate();
+    }
 
 }
