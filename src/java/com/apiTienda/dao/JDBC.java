@@ -1,4 +1,4 @@
-package com.apiTienda.datos;
+package com.apiTienda.dao;
 
 import com.apiTienda.modelo.Producto;
 import com.apiTienda.modelo.Review;

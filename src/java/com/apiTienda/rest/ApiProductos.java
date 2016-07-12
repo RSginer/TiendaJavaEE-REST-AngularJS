@@ -1,6 +1,6 @@
 package com.apiTienda.rest;
 
-import com.apiTienda.datos.JDBC;
+import com.apiTienda.dao.JDBC;
 import com.apiTienda.modelo.Producto;
 import com.apiTienda.modelo.TransformadorJson;
 import java.sql.SQLException;
