@@ -167,15 +167,15 @@ public class JDBC {
    PreparedStatement ps = this.conn.prepareStatement(sql);
    ps.setInt(1, id);
    ResultSet res = ps.executeQuery();
+   res.next();
    int idProducto = res.getInt("idproducto");
    int idReview = res.getInt("id");
    int idUsuario = res.getInt("idusuario");
-   String autor = res.getString("autor");
-   String imagen = res.getString("imagen");
+  
    String comentario = res.getString("comentario");
    int estrellas = res.getInt("estrellas");
    Timestamp fecha = res.getTimestamp("fecha");
-   Review r = new Review(idReview,idUsuario,idProducto,autor,imagen,comentario,
+   Review r = new Review(idReview,idUsuario,idProducto,comentario,
            estrellas,fecha);
    return r;}
 

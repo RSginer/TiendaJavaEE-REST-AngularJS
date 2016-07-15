@@ -2,6 +2,7 @@ package com.apiTienda.rest;
 
 import com.apiTienda.dao.JDBC;
 import com.apiTienda.modelo.Producto;
+import com.apiTienda.modelo.Review;
 import com.apiTienda.modelo.TransformadorJson;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -67,4 +68,17 @@ public class ApiProductos {
     @DELETE
     public boolean borrarPorId(@PathParam("id") Integer id) throws SQLException{
     return this.dataBase.dropProducto(id);}
+    
+        @GET
+    @Path("/{idProducto}/reviews")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    public String getReviewsPorProducto(@PathParam("idProducto") Integer idProducto) {
+        List<Review> listaReviews = new ArrayList<>();
+        try {
+            listaReviews = this.dataBase.getReviewsDeProducto(idProducto);
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener las reviews del productto " + idProducto + "." + ex.getMessage());
+        }
+        return this.TJson.toJson(listaReviews.toArray());
+    }
 }

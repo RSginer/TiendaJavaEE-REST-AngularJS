@@ -15,7 +15,16 @@ public class Review{
     private String comentario;
     private int estrellas;
     private Timestamp fecha;
-
+    
+    public Review(int id,int idusuario, int idproducto, String comentario, int estrellas,
+            Timestamp fecha){
+    this.id=id;
+    this.idUsuario=idusuario;
+    this.idProducto=idproducto;
+    this.comentario=comentario;
+    this.estrellas=estrellas;
+    this.fecha=fecha;
+    }
     public Review() {
     }
 
