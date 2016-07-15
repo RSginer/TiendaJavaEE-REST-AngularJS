@@ -1,8 +1,32 @@
-<h2 style="text-align:center;">Aqui la ficha del producto</h2>
-<p><strong>Nombre:</strong> {{CtrlFichaP.producto.nombre}}</p>
-<p><img width="200px" ng-src="{{CtrlFichaP.producto.imagen}}"/></p>
-<p><strong>Descripcion:</strong> {{CtrlFichaP.producto.descripcion}}</p>
-<p><strong>Precio:</strong> {{CtrlFichaP.producto.precio}}</p>
-<p><strong>Stock:</strong> {{CtrlFichaP.producto.stock}}</p>
+<div class="panel panel-default" >
+    <div class="panel panel-heading">
+        <h2 style="text-align:center;">{{CtrlFichaP.producto.nombre}}</h2>
+    </div>
+    <div class="panel panel-body">
+       
+            <div class="col-md-4"><img width="70%" ng-src="{{CtrlFichaP.producto.imagen}}"/></div>
+            <div class="col-md-8"> 
+                <p>{{CtrlFichaP.producto.descripcion}}</p>
+                <br>
+                <label class="label label-primary precioProducto">{{CtrlFichaP.producto.precio}}</label>
+                Stock: <label class="label label-success">{{CtrlFichaP.producto.stock}}</label>
+            </div>
+    </div>
+    <div class="panel panel-footer" style="margin-bottom:0px !important;">
+        <div style="margin: 0 auto;">
+            <button class="btn btn-primary">
+                <span class=""></span>Comprar
+            </button>
+            <button class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>
+                <span class="glyphicon glyphicon-shopping-cart"></span> Añadir al carrito
+            </button>
+        </div>
+    </div>
+</div>
+
+
 <h2>Opiniones</h2>
-<opiniones-producto producto="CtrlFichaP.producto"></opiniones-producto>
+<div class="col-md-12">
+    <opiniones-producto producto="CtrlFichaP.producto"></opiniones-producto>
+</div>

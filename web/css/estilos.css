@@ -139,3 +139,10 @@ a {
     font-size: 20px;
     text-align: center;
 }
+.precioProducto{
+    font-size:25px;
+    float:right;
+}
+.precioProducto:after{
+    content:' €';
+}

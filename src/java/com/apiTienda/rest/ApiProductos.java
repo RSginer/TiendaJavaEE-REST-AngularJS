@@ -6,7 +6,9 @@ import com.apiTienda.modelo.TransformadorJson;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import static javax.ws.rs.HttpMethod.DELETE;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -61,4 +63,8 @@ public class ApiProductos {
         }
     return this.TJson.toJson(p);}
     
+    @Path("/{id}")
+    @DELETE
+    public boolean borrarPorId(@PathParam("id") Integer id) throws SQLException{
+    return this.dataBase.dropProducto(id);}
 }

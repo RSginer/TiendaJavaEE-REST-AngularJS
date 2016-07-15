@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -144,5 +145,38 @@ public class JDBC {
     ps.setTimestamp(6, r.getFecha());
     ps.executeUpdate();
     }
+    
+    public boolean dropProducto(Integer id) throws SQLException{
+    int res;
+    boolean respuesta=false;
+    String sql = "DELETE FROM producto WHERE id = ?";
+    PreparedStatement ps = this.conn.prepareStatement(sql);
+    ps.setInt(1, id);
+    res = ps.executeUpdate();
+        if (res>0) {
+            respuesta = true;
+        }
+   return respuesta; }
+    
+   public boolean dropReview(Integer id) throws SQLException{
+   
+   return false;}
+   
+   public Review getReviewById(Integer id) throws SQLException{
+   String sql = "SELECT * FROM review WHERE id=?";
+   PreparedStatement ps = this.conn.prepareStatement(sql);
+   ps.setInt(1, id);
+   ResultSet res = ps.executeQuery();
+   int idProducto = res.getInt("idproducto");
+   int idReview = res.getInt("id");
+   int idUsuario = res.getInt("idusuario");
+   String autor = res.getString("autor");
+   String imagen = res.getString("imagen");
+   String comentario = res.getString("comentario");
+   int estrellas = res.getInt("estrellas");
+   Timestamp fecha = res.getTimestamp("fecha");
+   Review r = new Review(idReview,idUsuario,idProducto,autor,imagen,comentario,
+           estrellas,fecha);
+   return r;}
 
 }
